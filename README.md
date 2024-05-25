@@ -3,4 +3,4 @@
 
 # Contributors
 - [Name](www.name.com)
-- [Ayomide Owoyemi] (https://github.com/Ayomidejoe)
+- [Ayomide O] (https://github.com/Ayomidejoe)
