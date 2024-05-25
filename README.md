@@ -3,4 +3,4 @@ my contribution
 
 # Contributors
 - [Name](www.name.com)
-[Mohammed Afeez](https://github.com/NKASG)
+- [Mohammed Afeez](https://github.com/NKASG)
