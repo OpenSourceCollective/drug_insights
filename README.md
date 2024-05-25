@@ -3,4 +3,4 @@
 
 # Contributors
 - [Name](www.name.com)
-- [Shamsudeen Abubakar] (https://github.com/har-booh)
+- [Shamsudeen Abubakar](https://github.com/har-booh)
