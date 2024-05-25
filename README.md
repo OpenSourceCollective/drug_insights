@@ -2,5 +2,8 @@
 
 
 # Contributors
+<<<<<<< HEAD
 - [Name](www.name.com)
-- [Shamsudeen Abubakar](https://github.com/har-booh)
+=======
+- [Kelvin Akyea](https://github.com/khelvyn80)
+>>>>>>> origin
