@@ -1,9 +1,11 @@
 from typing import Any, Dict
 
-from langchain.chat_models import ChatOpenAI
+# from langchain.chat_models import ChatOpenAI
+from langchain_openai import AzureChatOpenAI, ChatOpenAI
 
 MODEL_FACTORY = {
     "chat_openai": ChatOpenAI,
+    "azure_chat_openai": AzureChatOpenAI,
 }
 
 
