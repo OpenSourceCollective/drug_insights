@@ -19,3 +19,4 @@ pip install -e .
 - [Kelvin Akyea](https://github.com/khelvyn80)
 - [Mohammed Afeez](https://github.com/NKASG)
 - [Shamsudeen Abubakar](https://github.com/har-booh)
+- [Taofeeq Oluwatosin Togunwa](https://linkedin.com/in/taofeeq-togunwa-2a7690184)
