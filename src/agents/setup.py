@@ -1,13 +1,8 @@
 import os
 
-from dotenv import load_dotenv
 from langchain.agents import AgentType, initialize_agent
 from langchain.memory import ConversationBufferMemory
-
-# from .models import get_model
 from langchain_openai import AzureChatOpenAI
-
-load_dotenv()
 
 
 def get_agent():

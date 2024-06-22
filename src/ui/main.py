@@ -1,7 +1,10 @@
 import streamlit as st
+from dotenv import load_dotenv
+from langchain_community.callbacks import StreamlitCallbackHandler
 
 from agents.setup import get_agent
-from langchain_community.callbacks import StreamlitCallbackHandler
+
+load_dotenv(".env")
 
 if "enable_search" not in st.session_state:
     st.session_state["enable_search"] = {}
