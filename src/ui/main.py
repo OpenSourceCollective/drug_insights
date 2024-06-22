@@ -1,9 +1,7 @@
-import os
-
 import streamlit as st
-from langchain.callbacks import StreamlitCallbackHandler
 
 from agents.setup import get_agent
+from langchain_community.callbacks import StreamlitCallbackHandler
 
 if "enable_search" not in st.session_state:
     st.session_state["enable_search"] = {}
