@@ -48,8 +48,8 @@ for idx, msg in enumerate(agent_executor.msgs.messages):
         st.write(msg.content)
 
 
-if prompt := st.chat_input():
-    st.chat_message("user").write(prompt)
+if query := st.chat_input():
+    st.chat_message("user").write(query)
 
     with st.chat_message("assistant"):
         st_cb = StreamlitCallbackHandler(
@@ -58,7 +58,7 @@ if prompt := st.chat_input():
 
         cfg = RunnableConfig()
         cfg["callbacks"] = [st_cb]
-        response = agent_executor.executor.invoke(prompt, cfg)
+        response = agent_executor.executor.invoke(query, cfg)
         st.write(response["output"])
         st.session_state.steps[str(len(agent_executor.msgs.messages) - 1)] = (
             response["intermediate_steps"]

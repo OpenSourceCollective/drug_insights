@@ -8,11 +8,15 @@ from langchain_community.chat_message_histories import (
 )
 from langchain_openai import AzureChatOpenAI
 
+from .prompts.defaults import PREFIX, SUFFIX
+
 load_dotenv(".env")
 
 
 class ChatAndRetrievalExecutor:
-    def __init__(self) -> None:
+    def __init__(
+        self, system_prompt: str = PREFIX, user_prompt: str = SUFFIX
+    ) -> None:
         self.llm = AzureChatOpenAI(
             openai_api_version=os.environ["AZURE_OPENAI_API_VERSION"],
             azure_deployment=os.environ["AZURE_OPENAI_CHAT_DEPLOYMENT_NAME"],
@@ -26,7 +30,10 @@ class ChatAndRetrievalExecutor:
             output_key="output",
         )
         self.chat_agent = ConversationalChatAgent.from_llm_and_tools(
-            llm=self.llm, tools=self.tools
+            llm=self.llm,
+            tools=self.tools,
+            system_message=system_prompt,
+            human_message=user_prompt,
         )
         self.executor = AgentExecutor.from_agent_and_tools(
             agent=self.chat_agent,
