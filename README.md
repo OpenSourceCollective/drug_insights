@@ -19,4 +19,4 @@ pip install -e .
 - [Kelvin Akyea](https://github.com/khelvyn80)
 - [Mohammed Afeez](https://github.com/NKASG)
 - [Shamsudeen Abubakar](https://github.com/har-booh)
-- [Favour Madubuko](https://github.com/Favour-Madubuko/)
+- [Favour Madubuko](https://github.com/favouralgo/)
