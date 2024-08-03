@@ -20,3 +20,4 @@ pip install -e .
 - [Mohammed Afeez](https://github.com/NKASG)
 - [Shamsudeen Abubakar](https://github.com/har-booh)
 - [Favour Madubuko](https://github.com/favouralgo)
+- [Taofeeq Togunwa](https://github.com/Taofeeq-T)
