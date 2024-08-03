@@ -2,7 +2,7 @@ from typing import Any, List, Protocol
 
 
 class VectorDB(Protocol):
-    def create_index(self, *args, **kwarg) -> None:
+    def _create_index(self, *args, **kwarg) -> None:
         pass
 
     def insert(self, *args, **kwarg) -> None:

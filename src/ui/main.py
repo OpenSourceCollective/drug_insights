@@ -1,9 +1,12 @@
 import streamlit as st
+from agents.executors import ChatAndRetrievalExecutor
+from agents.handlers import PrintRetrievalHandler, StreamHandler
+from agents.helpers import get_by_session_id
 from langchain.schema import ChatMessage
 from langchain_community.callbacks import StreamlitCallbackHandler
+from langchain_core.messages import HumanMessage
 from langchain_core.runnables import RunnableConfig
-
-from agents.executors import ChatAndRetrievalExecutor
+from langchain_core.runnables.history import RunnableWithMessageHistory
 
 st.title("🤖 Drug Insights")
 st.write(
@@ -37,29 +40,74 @@ avatars = {"human": "user", "ai": "assistant"}
 for idx, msg in enumerate(agent_executor.msgs.messages):
     with st.chat_message(avatars[msg.type]):
         # Render intermediate steps if any were saved
-        for step in st.session_state.steps.get(str(idx), []):
-            if step[0].tool == "_Exception":
-                continue
-            with st.status(
-                f"**{step[0].tool}**: {step[0].tool_input}", state="complete"
-            ):
-                st.write(step[0].log)
-                st.write(step[1])
+        # for step in st.session_state.steps.get(str(idx), []):
+        #     if step[0].tool == "_Exception":
+        #         continue
+        #     with st.status(
+        #         f"**{step[0].tool}**: {step[0].tool_input}", state="complete"
+        #     ):
+        #         st.write(step[0].log)
+        #         st.write(step[1])
         st.write(msg.content)
 
 
 if query := st.chat_input():
     st.chat_message("user").write(query)
+    # st.session_state.messages.append(
+    #     {"role": "user", "content": query}
+    # )
+    agent_executor.msgs.add_user_message(query)
 
     with st.chat_message("assistant"):
+        # TODO: fix handlers to show context and retrieval
+        # retrieval_handler = PrintRetrievalHandler(st.container())
+        # stream_handler = StreamHandler(st.empty())
+        # response = agent_executor.chat_agent.run(
+        #     query, callbacks=[retrieval_handler, stream_handler]
+        # )
+        # st.write(response)
+
         st_cb = StreamlitCallbackHandler(
             st.container(), expand_new_thoughts=True
         )
-
         cfg = RunnableConfig()
         cfg["callbacks"] = [st_cb]
-        response = agent_executor.executor.invoke(query, cfg)
-        st.write(response["output"])
-        st.session_state.steps[str(len(agent_executor.msgs.messages) - 1)] = (
-            response["intermediate_steps"]
+        cfg["configurable"] = {"session_id": "abc123"}
+        runner = RunnableWithMessageHistory(
+            agent_executor.executor,
+            get_by_session_id,
+            input_messages_key="input",
+            history_messages_key="chat_history",
+            output_messages_key="answer",
         )
+        response = runner.invoke(
+            {
+                "input": query,
+            },
+            config=cfg,
+        )
+        agent_executor.history.extend(
+            [HumanMessage(content=query), response["answer"]]
+        )
+
+        # st_cb = StreamlitCallbackHandler(
+        #     st.container(), expand_new_thoughts=True
+        # )
+        # cfg = RunnableConfig()
+        # cfg["callbacks"] = [st_cb]
+        # response = agent_executor.executor.invoke(
+        #     {"input": query, "chat_history": agent_executor.history},
+        #     config=cfg,
+        # )
+        # agent_executor.history.extend(
+        #     [HumanMessage(content=query), response["answer"]]
+        # )
+
+        st.write(response["answer"])
+        # st.write(response)
+        # st.write(response["output"])
+        # st.session_state.steps[str(len(agent_executor.msgs.messages) - 1)] = (
+        #     response
+        # )
+    st.chat_message("assistant").write(response["context"])
+    agent_executor.msgs.add_ai_message(response["answer"])
