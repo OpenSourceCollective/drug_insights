@@ -14,7 +14,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import AzureChatOpenAI
 from vector_db.pinecone import PineconeDB
 
-from .prompts.qa_prompts import CONTEXTUALIZE_Q_SYSTEM_PROMPT, QA_SYSTEM_PROMPT
+from .prompts.qa_prompts_2 import CONTEXTUALIZE_Q_SYSTEM_PROMPT, QA_SYSTEM_PROMPT
 
 # from langchain.agents import AgentExecutor, ConversationalChatAgent
 # from langchain.chains import ConversationalRetrievalChain
