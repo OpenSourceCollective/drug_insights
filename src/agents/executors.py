@@ -12,9 +12,13 @@ from langchain_community.chat_message_histories import (
 )
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import AzureChatOpenAI
+
 from vector_db.pinecone import PineconeDB
 
-from .prompts.qa_prompts import CONTEXTUALIZE_Q_SYSTEM_PROMPT, QA_SYSTEM_PROMPT
+from .prompts.qa_prompts_v2 import (
+    CONTEXTUALIZE_Q_SYSTEM_PROMPT,
+    QA_SYSTEM_PROMPT,
+)
 
 # from langchain.agents import AgentExecutor, ConversationalChatAgent
 # from langchain.chains import ConversationalRetrievalChain
@@ -93,5 +97,3 @@ class ChatAndRetrievalExecutor:
 
     def invoke(self, *args, **kwargs):
         return self.executor.invoke(*args, **kwargs)
-
-    # def
