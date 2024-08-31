@@ -1,3 +1,4 @@
+import json
 import os
 
 from dotenv import load_dotenv
@@ -15,10 +16,7 @@ from langchain_openai import AzureChatOpenAI
 
 from vector_db.pinecone import PineconeDB
 
-from .prompts.qa_prompts import (
-    CONTEXTUALIZE_Q_SYSTEM_PROMPT,
-    QA_SYSTEM_PROMPT,
-)
+from .prompts.qa_prompts import CONTEXTUALIZE_Q_SYSTEM_PROMPT, QA_SYSTEM_PROMPT
 
 # from langchain.agents import AgentExecutor, ConversationalChatAgent
 # from langchain.chains import ConversationalRetrievalChain
@@ -27,6 +25,14 @@ from .prompts.qa_prompts import (
 # from langchain_core.runnables import RunnablePassthrough
 
 load_dotenv(".env")
+
+with open("config.json", "r") as f:
+    config = json.load(f)
+
+CONTEXTUALIZE_Q_SYSTEM_PROMPT = config.get(
+    "contextualize_q_system_prompt", CONTEXTUALIZE_Q_SYSTEM_PROMPT
+)
+QA_SYSTEM_PROMPT = config.get("qa_system_prompt", QA_SYSTEM_PROMPT)
 
 
 class ChatAndRetrievalExecutor:
