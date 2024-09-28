@@ -1,12 +1,13 @@
 import streamlit as st
-from agents.executors import ChatAndRetrievalExecutor
-from agents.handlers import PrintRetrievalHandler, StreamHandler
-from agents.helpers import get_by_session_id
 from langchain.schema import ChatMessage
 from langchain_community.callbacks import StreamlitCallbackHandler
 from langchain_core.messages import HumanMessage
 from langchain_core.runnables import RunnableConfig
 from langchain_core.runnables.history import RunnableWithMessageHistory
+
+from agents.executors import ChatAndRetrievalExecutor
+from agents.handlers import PrintRetrievalHandler, StreamHandler
+from agents.helpers import STORE, InMemoryHistory, get_by_session_id
 
 st.title("🤖 Drug Insights")
 st.write(
@@ -32,9 +33,14 @@ if len(agent_executor.msgs.messages) == 0 or st.sidebar.button(
     st.session_state["messages"] = [
         ChatMessage(role="assistant", content="How can I help you?")
     ]
+    agent_executor = ChatAndRetrievalExecutor()
     agent_executor.msgs.clear()
+    agent_executor.history = []
     agent_executor.msgs.add_ai_message("How can I help you?")
     st.session_state.steps = {}
+    for key in STORE:
+        in_memory_history = STORE[key]
+        in_memory_history.clear()
 
 avatars = {"human": "user", "ai": "assistant"}
 for idx, msg in enumerate(agent_executor.msgs.messages):
@@ -53,12 +59,10 @@ for idx, msg in enumerate(agent_executor.msgs.messages):
 
 if query := st.chat_input():
     st.chat_message("user").write(query)
-    # st.session_state.messages.append(
-    #     {"role": "user", "content": query}
-    # )
     agent_executor.msgs.add_user_message(query)
 
     with st.chat_message("assistant"):
+
         # TODO: fix handlers to show context and retrieval
         # retrieval_handler = PrintRetrievalHandler(st.container())
         # stream_handler = StreamHandler(st.empty())
