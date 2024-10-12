@@ -21,7 +21,6 @@ pip install -e .
 ## Contributors
 
 - [Ayomide O](https://github.com/Ayomidejoe)
-- [Favour Madubuko](https://github.com/favouralgo)
 - [Joshua Owoyemi](https://toluwajosh.github.io/)
 - [Kelvin Akyea](https://github.com/khelvyn80)
 - [Mohammed Afeez](https://github.com/NKASG)
