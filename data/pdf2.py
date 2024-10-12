@@ -19,11 +19,12 @@ import os
 """# Installing and importing the libraries"""
 
 # Run the code below on terminal
-#pip install langchain pymupdf
+# pip install langchain pymupdf
 
 """# Text extraction from the PDF"""
 
 import fitz  # PyMuPDF
+
 
 def get_column_boxes(page, num_columns=2, margin=12):
     """
@@ -51,7 +52,10 @@ def get_column_boxes(page, num_columns=2, margin=12):
 
     return column_boxes
 
-def extract_text_from_columns(pdf_path, start_page, end_page, output_txt_path, num_columns=2, margin=10):
+
+def extract_text_from_columns(
+    pdf_path, start_page, end_page, output_txt_path, num_columns=2, margin=10
+):
     """
     Extract text from a multi-column PDF and save to a .txt file.
 
@@ -66,7 +70,7 @@ def extract_text_from_columns(pdf_path, start_page, end_page, output_txt_path, n
     doc = fitz.open(pdf_path)
 
     # Open a file to write the extracted text
-    with open(output_txt_path, 'w') as f:
+    with open(output_txt_path, "w") as f:
         # Loop through the specified range of pages
         for page_num in range(start_page, end_page + 1):
             page = doc[page_num]
@@ -82,20 +86,24 @@ def extract_text_from_columns(pdf_path, start_page, end_page, output_txt_path, n
                 f.write("-" * 80)
                 f.write("\n")
 
-    print(f"Text extracted from pages {start_page} to {end_page} and saved to {output_txt_path}")
+    print(
+        f"Text extracted from pages {start_page} to {end_page} and saved to {output_txt_path}"
+    )
+
 
 # Defined variables
 pdf_path = "/content/drive/My Drive/e-EMDEX 2006.pdf"
 output_txt_path = "/content/drive/My Drive/eEMDEX_2006_reference.txt"
 start_page = 700  # Starting page number (0-indexed)
-end_page = 718   # Ending page number (0-indexed)
+end_page = 718  # Ending page number (0-indexed)
 
 extract_text_from_columns(pdf_path, start_page, end_page, output_txt_path)
 
 """# Prettifying extracted text"""
 
+
 def prettify_text(input_txt_path, output_txt_path):
-    with open(input_txt_path, 'r') as file:
+    with open(input_txt_path, "r") as file:
         text = file.read()
 
     # Remove unwanted line breaks and extra spaces
@@ -114,8 +122,9 @@ def prettify_text(input_txt_path, output_txt_path):
     pretty_text = "\n".join(pretty_lines)
 
     # Write prettified text to the output file
-    with open(output_txt_path, 'w') as file:
+    with open(output_txt_path, "w") as file:
         file.write(pretty_text)
+
 
 # Defined variables
 input_txt_path = "/content/drive/My Drive/eEMDEX_2006_reference.txt"
