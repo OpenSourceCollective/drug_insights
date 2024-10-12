@@ -1,0 +1,33 @@
+[
+    {
+        "title": "British National Formulary - 80",
+        "link": "https://www.amazon.com/s?k=9780857113696&i=stripbooks&linkCode=qs",
+        "references": [
+            "Joint Formulary Committee (2020) British National Formulary, 80."
+        ]
+    },
+
+    {
+        "title": "European Pharmacopoeia 8th Edition",
+        "link": "https://www.scribd.com/document/352089319/European-Pharmacopoeia-8-0",
+        "references": [
+            "European Pharmacopoeia 8th Edition 2014 Print (Volume 8.0 ,8.1 and 8.2). (n.d.). https://www.abebooks.com/9789287175274/European-Pharmacopoeia-8th-Edition-2014-9287175276/plp"
+        ]
+    },
+
+    {
+        "title": "The Complete Drug Formulary For Nigeria’s Health Professionals",
+        "link": "www.emdexafrica.com",
+        "references": [
+            "Wikipedia contributors. (2023, July 29). EMDEX. Wikipedia. https://en.wikipedia.org/wiki/EMDEX"
+        ]
+    },
+    
+    {
+        "title": "British National Formulary for Children",
+        "link": "https://www.nice.org.uk/bnfc-uk-only",
+        "references": [
+            "NICE. (n.d.). BNFc is only available in the UK. https://www.nice.org.uk/bnfc-uk-only"
+        ]
+    }
+]
