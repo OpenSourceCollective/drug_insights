@@ -27,6 +27,7 @@ CONTEXTUALIZE_Q_SYSTEM_PROMPT = config.get(
     "contextualize_q_system_prompt", CONTEXTUALIZE_Q_SYSTEM_PROMPT
 )
 QA_SYSTEM_PROMPT = config.get("qa_system_prompt", QA_SYSTEM_PROMPT)
+VECTOR_DB_THRESHOLD = config.get("vector_db_threshold", 0.9)
 
 
 class ChatAndRetrievalExecutor:
@@ -48,7 +49,7 @@ class ChatAndRetrievalExecutor:
         )
         self.retriever = PineconeDB().vectorstore_retriever(
             search_type="similarity_score_threshold",
-            search_kwargs={"score_threshold": 0.9},
+            search_kwargs={"score_threshold": VECTOR_DB_THRESHOLD},
         )
 
         qa_prompt = ChatPromptTemplate.from_messages(
