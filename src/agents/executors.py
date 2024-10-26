@@ -18,12 +18,6 @@ from vector_db.pinecone import PineconeDB
 
 from .prompts.qa_prompts import CONTEXTUALIZE_Q_SYSTEM_PROMPT, QA_SYSTEM_PROMPT
 
-# from langchain.agents import AgentExecutor, ConversationalChatAgent
-# from langchain.chains import ConversationalRetrievalChain
-# from langchain_core.messages import HumanMessage
-# from langchain_core.output_parsers import StrOutputParser
-# from langchain_core.runnables import RunnablePassthrough
-
 load_dotenv(".env")
 
 with open("config.json", "r") as f:
@@ -52,26 +46,10 @@ class ChatAndRetrievalExecutor:
             memory_key="chat_history",
             output_key="answer",
         )
-        # self.tools = []  # TODO: Add tools here. Tools may not be needed.
         self.retriever = PineconeDB().vectorstore_retriever(
-            search_type="mmr", search_kwargs={"k": 3, "fetch_k": 3}
+            search_type="similarity_score_threshold",
+            search_kwargs={"score_threshold": 0.9},
         )
-        # self.chat_agent = ConversationalRetrievalChain.from_llm(
-        #     llm=self.llm,
-        #     # tools=self.tools,
-        #     # system_message=system_prompt,
-        #     # human_message=user_prompt,
-        #     memory=self.memory,
-        #     retriever=self.retriever,
-        #     verbose=True,
-        # )
-        # self.executor = AgentExecutor.from_agent_and_tools(
-        #     agent=self.chat_agent,
-        #     tools=self.tools,
-        #     # memory=self.memory,
-        #     return_intermediate_steps=True,
-        #     handle_parsing_errors=True,
-        # )
 
         qa_prompt = ChatPromptTemplate.from_messages(
             [
