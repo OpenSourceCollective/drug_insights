@@ -20,8 +20,11 @@ from .prompts.qa_prompts import CONTEXTUALIZE_Q_SYSTEM_PROMPT, QA_SYSTEM_PROMPT
 
 load_dotenv(".env")
 
-with open("config.json", "r") as f:
-    config = json.load(f)
+try:
+    with open("config.json", "r") as f:
+        config = json.load(f)
+except FileNotFoundError:
+    config = {}
 
 CONTEXTUALIZE_Q_SYSTEM_PROMPT = config.get(
     "contextualize_q_system_prompt", CONTEXTUALIZE_Q_SYSTEM_PROMPT
