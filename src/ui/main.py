@@ -5,10 +5,9 @@ from langchain_core.messages import HumanMessage
 from langchain_core.runnables import RunnableConfig
 from langchain_core.runnables.history import RunnableWithMessageHistory
 
-from agents.executors import ChatAndRetrievalExecutor
-from agents.helpers import STORE, get_by_session_id
-
-from extractors import parser
+from src.agents.executors import ChatAndRetrievalExecutor
+from src.agents.helpers import STORE, get_by_session_id
+from src.extractors import parser
 
 st.title("🤖 Drug Insights")
 st.write(
