@@ -163,3 +163,4 @@ src/version.py
 *__local*
 .lancedb/
 config.json
+.DS_Store
