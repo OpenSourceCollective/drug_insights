@@ -8,6 +8,8 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 from agents.executors import ChatAndRetrievalExecutor
 from agents.helpers import STORE, get_by_session_id
 
+from extractors import parser
+
 st.title("🤖 Drug Insights")
 st.write(
     """This is a public tool that people can use to for drug safety
@@ -79,5 +81,12 @@ if query := st.chat_input():
 
         st.write(response["answer"])
 
-    st.chat_message("assistant").write(response["context"])
+    context_list = response["context"]
+
+    parsed_docs = parser.parse_sources_list(context_list)
+    if any(parsed_docs):
+        with st.expander("See sources"):
+            formatted_output = parser.format_parsed_sources(parsed_docs)
+            st.markdown(formatted_output)
+
     agent_executor.msgs.add_ai_message(response["answer"])
