@@ -21,7 +21,7 @@ from .prompts.qa_prompts import CONTEXTUALIZE_Q_SYSTEM_PROMPT, QA_SYSTEM_PROMPT
 load_dotenv(".env")
 
 try:
-    with open("config.json", "r") as f:
+    with open("example_config.json", "r") as f:
         config = json.load(f)
 except FileNotFoundError:
     config = {}
