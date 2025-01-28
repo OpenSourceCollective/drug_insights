@@ -1,6 +1,30 @@
 # DrugInsights
 
-DrugInsights is a LLM-based application that provides insights into drugs and their interactions with other drugs.
+Welcome to the Drug Insights GitHub repository! This project is an open-source Retrieval-Augmented Generation (RAG) chatbot designed to provide healthcare professionals with accurate, context-aware drug information. Tailored to the unique challenges faced by African healthcare systems, Drug Insights aims to bridge the gap in medication knowledge accessibility, enhance patient safety, and streamline clinical workflows.
+
+## Why Drug Insights?
+Healthcare professionals in Africa often rely on time-intensive methods, such as printed formularies or general-purpose online resources, to access drug information. With limited pharmacist availability due to brain drain and resource constraints, a tool is critical to deliver timely and reliable medication insights. Drug Insights leverages the power of Large Language Models (LLMs) and advanced retrieval systems to address this gap, ensuring healthcare providers can access up-to-date and relevant drug data at their fingertips.
+
+## Key Features
+Real-Time Drug Lookup: Retrieve information on drug interactions, dosages, side effects, and contraindications effortlessly.
+Optimized for African Formularies: Built using the EMDEX formulary and other regionally relevant resources.
+Advanced RAG Architecture: Combines powerful Pinecone vector databases with GPT-4 for precise and reliable responses.
+Minimal Hallucination: Uses prompt engineering and S-BERT evaluation to deliver contextually accurate outputs.
+Open-Source and Scalable: Adaptable for integration with various datasets and applications.
+
+## How It Works
+Data Extraction and Preprocessing: Extracts and processes text from drug formularies like EMDEX using PyMuPDF, ensuring structured and readable information.
+Vector Storage: Embeds drug information into a high-dimensional Pinecone database for efficient cosine similarity retrieval.
+Natural Language Understanding: GPT-4 refines retrieved data, generating detailed and human-like responses.
+Evaluation and Optimization: Uses S-BERT similarity scoring and human feedback to ensure accuracy and relevance.
+
+## Future Enhancements
+Expanded Data Integration: Incorporating more regional and global drug formularies.
+Improved UI/UX: Enhancements to the interface for easier interaction and better visualization of drug data.
+Chat Session Support: Enabling multi-turn conversations for complex queries.
+Real-Time Feedback Mechanisms: Allowing users to rate responses for continuous improvement.
+
+
 
 ## Dev Setup
 
