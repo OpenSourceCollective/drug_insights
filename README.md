@@ -13,10 +13,10 @@ Minimal Hallucination: Uses prompt engineering and S-BERT evaluation to deliver 
 Open-Source and Scalable: Adaptable for integration with various datasets and applications.
 
 ## How It Works
-### Data Extraction and Preprocessing: Extracts and processes text from drug formularies like EMDEX using PyMuPDF, ensuring structured and readable information.
-### Vector Storage: Embeds drug information into a high-dimensional Pinecone database for efficient cosine similarity retrieval.
-### Natural Language Understanding: GPT-4 refines retrieved data, generating detailed and human-like responses.
-### Evaluation and Optimization: Uses S-BERT similarity scoring and human feedback to ensure accuracy and relevance.
+* Data Extraction and Preprocessing: Extracts and processes text from drug formularies like EMDEX using PyMuPDF, ensuring structured and readable information.
+* Vector Storage: Embeds drug information into a high-dimensional Pinecone database for efficient cosine similarity retrieval.
+* Natural Language Understanding: GPT-4 refines retrieved data, generating detailed and human-like responses.
+* Evaluation and Optimization: Uses S-BERT similarity scoring and human feedback to ensure accuracy and relevance.
 
 ## Future Enhancements
 Expanded Data Integration: Incorporating more regional and global drug formularies.
