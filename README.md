@@ -27,7 +27,8 @@ Real-Time Feedback Mechanisms: Allowing users to rate responses for continuous i
 ## Acknowledgement 
 We are grateful to [Advantage Health Africa](https://advantagehealthafrica.com/) for the support and funding provided for this project
 
-
+## Who we are
+We are [Axum AI](https://axumai.org/) leveraging AI and Tech to empower Africa and Africans with custom, open-source solutions with a focus on social impact and development
 
 ## Dev Setup
 
