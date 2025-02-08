@@ -25,7 +25,7 @@ Chat Session Support: Enabling multi-turn conversations for complex queries.
 Real-Time Feedback Mechanisms: Allowing users to rate responses for continuous improvement.
 
 ## Acknowledgement 
-We are grateful to Advantage Health Africa for the support and funding provided for this project
+We are grateful to Advantage Health Africa (https://advantagehealthafrica.com/) for the support and funding provided for this project
 
 
 
@@ -54,4 +54,7 @@ pip install -e .
 - [Shamsudeen Abubakar](https://github.com/har-booh)
 - [Favour Madubuko](https://github.com/favouralgo/)
 - [Taofeeq Togunwa](https://github.com/Taofeeq-T)
+- Samuel Oyatoye
+- Zeenat Oyetolu
+- Abimbola Adebakin
 - Advantage Health Africa (https://advantagehealthafrica.com/)
