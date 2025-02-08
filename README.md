@@ -48,7 +48,7 @@ pip install -e .
 
 ## Contributors
 
-- [Ayomide O](https://github.com/Ayomidejoe)
+- [Ayomide Owoyemi](https://github.com/Ayomidejoe)
 - [Joshua Owoyemi](https://toluwajosh.github.io/)
 - [Kelvin Akyea](https://github.com/khelvyn80)
 - [Mohammed Afeez](https://github.com/NKASG)
@@ -57,5 +57,5 @@ pip install -e .
 - [Taofeeq Togunwa](https://github.com/Taofeeq-T)
 - Samuel Oyatoye
 - Zeenat Oyetolu
-- Abimbola Adebakin
+- [Abimbola Adebakin](https://www.linkedin.com/in/abimbolaadebakin)
 - [Advantage Health Africa](https://advantagehealthafrica.com/)
