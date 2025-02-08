@@ -57,4 +57,4 @@ pip install -e .
 - Samuel Oyatoye
 - Zeenat Oyetolu
 - Abimbola Adebakin
-- Advantage Health Africa (https://advantagehealthafrica.com/)
+- [Advantage Health Africa](https://advantagehealthafrica.com/)
